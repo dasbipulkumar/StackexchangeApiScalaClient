@@ -1,7 +1,7 @@
-package com.devstream.apiclients.stackoverflow.response
+package com.devstream.apiclients.stackexchange.response
 
-import com.devstream.apiclients.stackoverflow.response.UserTimelinePostType.UserTimelinePostType
-import com.devstream.apiclients.stackoverflow.response.UserTimelineType.UserTimelineType
+import com.devstream.apiclients.stackexchange.response.UserTimelinePostType.UserTimelinePostType
+import com.devstream.apiclients.stackexchange.response.UserTimelineType.UserTimelineType
 import org.json4s.DefaultFormats
 import org.json4s.JsonAST.JValue
 

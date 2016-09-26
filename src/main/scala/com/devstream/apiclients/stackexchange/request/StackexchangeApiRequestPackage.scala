@@ -1,8 +1,7 @@
-package com.devstream.apiclients.stackoverflow.request
+package com.devstream.apiclients.stackexchange.request
 
 
-import com.devstream.apiclients.stackoverflow.Apis.StackexchangeApiPackage
-import com.devstream.apiclients.stackoverflow.request.StackexchangeSite.StackexchangeSite
+import com.devstream.apiclients.stackexchange.request.StackexchangeSite.StackexchangeSite
 
 /**
   * Created by bipulk on 9/23/16.
@@ -39,15 +38,5 @@ object StackexchangeApiRequestPackage extends StackexchangeApi {
     StackexchangeApiRequest(apiUrl, apiVersion, apiFunction, 1, questionIdsSet.size, key, accessToken, apiFilter, site, Map.empty)
   }
 
-  def main(args: Array[String]) {
-
-    //println(StackexchangeApiPackage.getMyTimeline("U4DMV*8nvpm3EOpvf69Rxw((", "ke1nd1e1AIs4O3T3wbx3DQ))", StackexchangeSite.stackoverflow, 1 ,100))
-
-    val questionIds = List.fill(3)("29608319")
-    //println(buildQuestionTagsRequest("key","token",StackexchangeSite.stackoverflow,questionIds).buildQueryString)
-
-    println(StackexchangeApiPackage.getQuestionTags("U4DMV*8nvpm3EOpvf69Rxw((", "ke1nd1e1AIs4O3T3wbx3DQ))", StackexchangeSite.stackoverflow,questionIds))
-
-  }
 
 }

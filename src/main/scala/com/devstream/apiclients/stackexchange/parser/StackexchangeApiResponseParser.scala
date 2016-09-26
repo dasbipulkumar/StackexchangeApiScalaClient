@@ -1,6 +1,6 @@
-package com.devstream.apiclients.stackoverflow.parser
+package com.devstream.apiclients.stackexchange.parser
 
-import com.devstream.apiclients.stackoverflow.response.{BaseResponseWrapper, Item}
+import com.devstream.apiclients.stackexchange.response.{BaseResponseWrapper, Item}
 import org.json4s.DefaultFormats
 import org.json4s.JsonAST.{JArray, JValue}
 

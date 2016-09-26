@@ -1,6 +1,6 @@
-package com.devstream.apiclients.stackoverflow.request
+package com.devstream.apiclients.stackexchange.request
 
-import com.devstream.apiclients.stackoverflow.request.StackexchangeSite.StackexchangeSite
+import com.devstream.apiclients.stackexchange.request.StackexchangeSite.StackexchangeSite
 
 
 /**

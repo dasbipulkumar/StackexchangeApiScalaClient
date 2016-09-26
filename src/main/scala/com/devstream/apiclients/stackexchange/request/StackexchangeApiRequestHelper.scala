@@ -1,7 +1,7 @@
-package com.devstream.apiclients.stackoverflow.request
+package com.devstream.apiclients.stackexchange.request
 
 
-import com.devstream.apiclients.stackoverflow.gzip.ResponseDecompressor
+import com.devstream.apiclients.stackexchange.gzip.ResponseDecompressor
 import org.apache.commons.httpclient.methods.GetMethod
 import org.apache.commons.httpclient.params.HttpConnectionManagerParams
 import org.apache.commons.httpclient.{HttpClient, SimpleHttpConnectionManager}

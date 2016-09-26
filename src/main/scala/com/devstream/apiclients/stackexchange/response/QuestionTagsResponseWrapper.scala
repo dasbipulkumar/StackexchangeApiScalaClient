@@ -1,4 +1,4 @@
-package com.devstream.apiclients.stackoverflow.response
+package com.devstream.apiclients.stackexchange.response
 
 import org.json4s.DefaultFormats
 import org.json4s.JsonAST.{JArray, JValue}
@@ -31,6 +31,7 @@ class QuestionTagsResponse(questionIdParam: String, tagsParam: List[String]) ext
   }.toOption
 
 
+  override def toString = s"QuestionTagsResponse(questionId=$questionId, tags=$tags)"
 }
 
 object QuestionTagsResponse {

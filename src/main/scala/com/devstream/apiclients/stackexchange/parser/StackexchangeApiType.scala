@@ -1,4 +1,4 @@
-package com.devstream.apiclients.stackoverflow.parser
+package com.devstream.apiclients.stackexchange.parser
 
 
 

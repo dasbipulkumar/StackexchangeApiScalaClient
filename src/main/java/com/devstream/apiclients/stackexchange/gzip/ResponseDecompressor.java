@@ -1,4 +1,4 @@
-package com.devstream.apiclients.stackoverflow.gzip;
+package com.devstream.apiclients.stackexchange.gzip;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;

@@ -1,6 +1,6 @@
-package com.devstream.apiclients.stackoverflow.response
+package com.devstream.apiclients.stackexchange.response
 
-import com.devstream.apiclients.stackoverflow.parser.StackexchangeApiType._
+import com.devstream.apiclients.stackexchange.parser.StackexchangeApiType._
 import org.json4s.JsonAST.JValue
 
 import scala.util.Try
@@ -22,6 +22,8 @@ class BaseResponseWrapper[T <: Item](backoffParam: Int, has_moreParam: Boolean, 
   val apiType = apiTypeParam
   val items = itemsParams
 
+
+  override def toString = s"BaseResponseWrapper(backoff=$backoff, hasMore=$hasMore, page=$page, pageSize=$pageSize, quotaMax=$quotaMax, quotaRemaining=$quotaRemaining, total=$total, apiType=$apiType, items=$items)"
 }
 
 class Item {
