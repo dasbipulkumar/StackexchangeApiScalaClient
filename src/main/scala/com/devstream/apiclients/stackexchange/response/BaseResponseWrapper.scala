@@ -23,10 +23,10 @@ class BaseResponseWrapper[T <: Item](backoffParam: Int, has_moreParam: Boolean, 
   val items = itemsParams
 
 
-  override def toString = s"BaseResponseWrapper(backoff=$backoff, hasMore=$hasMore, page=$page, pageSize=$pageSize, quotaMax=$quotaMax, quotaRemaining=$quotaRemaining, total=$total, apiType=$apiType, items=$items)"
+  override def toString = s"""{backoff="$backoff", hasMore="$hasMore", page="$page", pageSize="$pageSize", quotaMax="$quotaMax", quotaRemaining="$quotaRemaining", total="$total", apiType="$apiType", items=$items}"""
 }
 
-class Item {
+class Item extends Serializable{
 
   def parse(itemJValue: JValue): Option[Item] = Try(new Item).toOption
 

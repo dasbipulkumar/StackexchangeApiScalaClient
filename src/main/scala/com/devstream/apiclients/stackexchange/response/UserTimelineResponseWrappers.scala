@@ -42,9 +42,6 @@ class UserTimelineBase(eventIdParam: String, userIdParam: String, timeStampParam
     }.toOption
   }
 
-
-
-
 }
 
 object UserTimelineType extends Enumeration {
@@ -68,7 +65,7 @@ class UserTimeLineQuestionAsked(eventIdParam: String, userIdParam: String, timeS
   val title = titleParam
 
 
-
+  override def toString = s"""{postType="$postType", link="$link", questionId="$questionId", title="$title", eventId="$eventId", userId="$userId", timelineType="$timelineType", timeStamp="$timeStamp"}"""
 }
 
 object UserTimeLineQuestionAsked {
@@ -95,6 +92,8 @@ class UserTimeLineQuestionAnswered(eventIdParam: String, userIdParam: String, ti
   val questionId = questionIdParam
   val title = titleParam
 
+
+  override def toString = s"""{postType="$postType", link="$link", questionId="$questionId", title="$title", eventId="$eventId", userId="$userId", timelineType="$timelineType", timeStamp="$timeStamp"}"""
 }
 
 object UserTimeLineQuestionAnswered {
@@ -119,16 +118,32 @@ object UserTimeLineQuestionAnswered {
 
     new UserTimeLineQuestionAnswered(eventId, userId, timeStamp, timelineType, postType, link, questionId, title)
   }
+
+  def fetch(txt: String): String = {
+    val regex = s"""id\\":\\"(.*?)\\","""
+    val pattern = java.util.regex.Pattern.compile(regex)
+    val matcher = pattern.matcher(txt)
+    var id = ""
+    if (matcher.find()) {
+      id = matcher.group(1)
+    }
+    id
+  }
 }
 
 
+
+
 class UserTimeLineBadge(eventIdParam: String, userIdParam: String, timeStampParam: Long, timelineTypeParam: UserTimelineType,
-                        linkParam: String, detailParam: String) extends
+                        linkParam: String, detailParam: String, badgeIdParam: String) extends
   UserTimelineBase(eventIdParam, userIdParam, timeStampParam, timelineTypeParam) {
 
   val link = linkParam
   val detail = detailParam
+  val badgeId = badgeIdParam
 
+
+  override def toString = s"""{link="$link", detail="$detail", eventId="$eventId", userId="$userId", timelineType="$timelineType", timeStamp="$timeStamp", badgeId="$badgeId"}"""
 }
 
 object UserTimeLineBadge {
@@ -150,20 +165,22 @@ object UserTimeLineBadge {
     }
 
     val badgeLink = s"http://$site/badges/$badgeId?userId=$userId"
-    new UserTimeLineBadge(userId + "_" + badgeId, userId, timeStamp, timelineType, badgeLink, detail)
+    new UserTimeLineBadge(userId + "_" + badgeId, userId, timeStamp, timelineType, badgeLink, detail, badgeId)
   }
 }
 
-class UserTimeLineComment(eventIdParam: String, postIdParam:String, userIdParam: String, timeStampParam: Long, timelineTypeParam: UserTimelineType,
-                                   postTypeParam: UserTimelinePostType, linkParam: String, questionIdParam: String, titleParam: String, detailParam: String) extends
+class UserTimeLineComment(eventIdParam: String, postIdParam: String, userIdParam: String, timeStampParam: Long, timelineTypeParam: UserTimelineType,
+                          postTypeParam: UserTimelinePostType, linkParam: String, questionIdParam: String, titleParam: String, detailParam: String) extends
   UserTimelineBase(eventIdParam, userIdParam, timeStampParam, timelineTypeParam) {
   val postId = postIdParam
   val postType = postTypeParam
   val link = linkParam
   val questionId = questionIdParam
   val title = titleParam
-  val detail = detailParam
+  val detail = detailParam.replace("\\","\\\\").replace("\n","\\n").replace("\b","\\b").replace("\r","\\r").replace("\t","\\t").replace("\'","\\'").replace("\f","\\f").replace("\"","\\\"")
 
+
+  override def toString = s"""{postId="$postId", postType="$postType", link="$link", questionId="$questionId", title="$title", detail="$detail", eventId="$eventId", userId="$userId", timelineType="$timelineType", timeStamp="$timeStamp"}"""
 }
 
 object UserTimeLineComment {
