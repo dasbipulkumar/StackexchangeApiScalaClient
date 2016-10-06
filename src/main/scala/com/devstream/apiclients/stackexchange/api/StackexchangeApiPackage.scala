@@ -1,8 +1,8 @@
 package com.devstream.apiclients.stackexchange.api
 
 import com.devstream.apiclients.stackexchange.parser.StackexchangeApiResponseParser
-import com.devstream.apiclients.stackexchange.request.{StackexchangeApiRequestHelper, StackexchangeApiRequestPackage, StackexchangeSite}
 import com.devstream.apiclients.stackexchange.request.StackexchangeSite.StackexchangeSite
+import com.devstream.apiclients.stackexchange.request.{StackexchangeApiRequestHelper, StackexchangeApiRequestPackage}
 import com.devstream.apiclients.stackexchange.response.{BaseResponseWrapper, Item, QuestionTagsResponse, UserTimelineBase}
 
 /**

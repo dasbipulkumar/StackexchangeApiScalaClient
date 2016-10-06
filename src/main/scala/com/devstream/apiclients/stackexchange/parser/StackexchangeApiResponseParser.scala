@@ -11,7 +11,7 @@ import org.json4s.JsonAST.{JArray, JValue}
 
 object StackexchangeApiResponseParser {
 
-  def parseResponse[T<:Item](rawResponse: JValue)(implicit m: scala.reflect.Manifest[T]): BaseResponseWrapper[Item] = {
+  def parseResponse[T <: Item](rawResponse: JValue)(implicit m: scala.reflect.Manifest[T]): BaseResponseWrapper[Item] = {
 
     implicit val formats = DefaultFormats
     val backoff = (rawResponse \ "backoff").extractOrElse[Int](0)
@@ -24,7 +24,7 @@ object StackexchangeApiResponseParser {
 
     val itemType = m.runtimeClass.newInstance.asInstanceOf[T]
     val items = (rawResponse \ "items").extract[JArray].arr.map(x => itemType.parse(x)).
-                filter(_.isDefined).filter(_.get.getClass.getName != "com.devstream.apiclients.stackoverflow.response.ItemType")map(_.get)
+      filter(_.isDefined).filter(_.get.getClass.getName != "com.devstream.apiclients.stackexchange.response.Item") map (_.get)
 
     val total = items.size
 
