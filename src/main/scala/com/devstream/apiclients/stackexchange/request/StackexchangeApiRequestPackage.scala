@@ -38,5 +38,17 @@ object StackexchangeApiRequestPackage extends StackexchangeApi {
     StackexchangeApiRequest(apiUrl, apiVersion, apiFunction, 1, questionIdsSet.size, key, accessToken, apiFilter, site, Map.empty)
   }
 
+  def buildAnswersRequest(key: String, accessToken: String,site: StackexchangeSite, answerIds: List[String]): StackexchangeApiRequest = {
+
+    val questionIdBuilder = new StringBuilder
+
+    val questionIdsSet = answerIds.toSet
+    questionIdsSet.foreach(x => questionIdBuilder.append(s"$x;"))
+
+
+    val apiFunction = s"answers/${questionIdBuilder.toString().substring(0,questionIdBuilder.toString().size-1)}"
+    val apiFilter = "!-*f(6t0VjPb5"
+    StackexchangeApiRequest(apiUrl, apiVersion, apiFunction, 1, questionIdsSet.size, key, accessToken, apiFilter, site, Map.empty)
+  }
 
 }
