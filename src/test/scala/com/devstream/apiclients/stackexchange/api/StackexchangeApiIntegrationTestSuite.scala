@@ -14,7 +14,7 @@ object StackexchangeApiIntegrationTestSuite {
      val questionIds = List.fill(3)("35055369")
     //println(buildQuestionTagsRequest("key","token",StackexchangeSite.stackoverflow,questionIds).buildQueryString)
 
-    // println(StackexchangeApiPackage.getQuestionTags("U4DMV*8nvpm3EOpvf69Rxw((", "ke1nd1e1AIs4O3T3wbx3DQ))", StackexchangeSite.stackoverflow, questionIds))
+     println(StackexchangeApiPackage.getQuestionTags("U4DMV*8nvpm3EOpvf69Rxw((", "ke1nd1e1AIs4O3T3wbx3DQ))", StackexchangeSite.stackoverflow, questionIds))
 
 
       println(StackexchangeApiPackage.getAnswers("U4DMV*8nvpm3EOpvf69Rxw((", "Qn6g0jDrADjd*73Cf3tvmA))", StackexchangeSite.stackoverflow, questionIds))
